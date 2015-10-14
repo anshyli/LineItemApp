@@ -1,9 +1,10 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ProductDB
 {
-    // a static variable
+/*    // a static variable
     private static Connection connection;    
 
     // the static initialization block
@@ -36,27 +37,30 @@ public class ProductDB
 	return false;}
    public static boolean delete(String code){
 	return false;}
+ */
+	public static Product getProduct(String barCode, String category, String description, double unitPrice, Boolean inStock) {
+		return new Product(barCode, category, description, unitPrice, inStock);
+	}
    public static Product getProduct(String productCode) {
        // create the Product object
-       Product p = new Product();
+       Product p = new Product(productCode);
 
        // fill the Product object with data
-       p.setCode(productCode);
        if (productCode.equalsIgnoreCase("java"))
        {
            p.setDescription("Murach's Beginning Java");
-           p.setPrice(49.50);
+           p.setUnitPrice(49.50);
        }
        else if (productCode.equalsIgnoreCase("jsps"))
        {
            p.setDescription(
                "Murach's Java Servlets and JSP");
-           p.setPrice(49.50);
+           p.setUnitPrice(49.50);
        }
        else if (productCode.equalsIgnoreCase("mcb2"))
        {
            p.setDescription("Murach's Mainframe COBOL");
-           p.setPrice(59.50);
+           p.setUnitPrice(59.50);
        }
        else
        {

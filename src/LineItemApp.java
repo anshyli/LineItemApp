@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class LineItemApp
 {
     public static void main(String args[])
@@ -25,19 +26,19 @@ public class LineItemApp
 
             // create the LineItem object and set its fields
             LineItem lineItem = new LineItem();
-            lineItem.setProduct(product);
+            lineItem.setTheProduct(product);
             lineItem.setQuantity(quantity);
 
             // display the output
             System.out.println();
             System.out.println("LINE ITEM");
             System.out.println(
-                "Code:        " + product.getCode());
+                "Code:        " + product.getBarCode());
             System.out.println(
                 "Description: " + product.getDescription());
             System.out.println(
                 "Price:       " + 
-                product.getFormattedPrice());
+                product.getFormattedPrice(product.getUnitPrice()));
             System.out.println(
                 "Quantity:    " + lineItem.getQuantity());
             System.out.println(

@@ -1,55 +1,90 @@
+
 import java.text.NumberFormat;
 
 public class Product {
-	private String code;
+	protected static int count = 0;
+	private String barCode;
+	private String category;
 	private String description;
-	private double price;
-
-	// declare a static variable
-	private static int objectCount = 0;
-
+	private double unitPrice;
+	private Boolean inStock;
+	
 	public Product() {
-		// code = "";
-		// description = "";
-		// price = 0;
-		objectCount++; // update the static variable
+		count++;
+	}
+	
+	public Product(String barCode) {
+		super();
+		this.barCode = barCode;
+	}
+	
+	public Product (String barCode, String category, String description, double unitPrice, Boolean inStock) {
+		super();
+		this.barCode = barCode;
+		this.category = category;
+		this.description = description;
+		this.unitPrice = unitPrice;
+		this.inStock = inStock;
+	}
+	public static int getCount() {
+		return count;
 	}
 
-	// get the static variable
-	public static int getObjectCount() {
-		return objectCount;
+	public static void setCount(int count) {
+		Product.count = count;
+	}
+	
+	public String getBarCode() {
+		return barCode;
 	}
 
-	public double getPrice() {
-
-		return price;
+	public void setBarCode(String barCode) {
+		this.barCode = barCode;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public String getFormattedPrice() {
-		NumberFormat currency =
-	            NumberFormat.getCurrencyInstance();
-	        return currency.format(price);
-
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setCode(String productCode) {
-		this.code = productCode;
+	public double getUnitPrice() {
+		return unitPrice;
 	}
 
-	public void setDescription(String string) {
-		this.description = string;
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 
-	public void setPrice(double d) {
-		this.price = d;
+	public String getFormattedPrice(double unitPrice) {
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+		return currency.format(unitPrice);
 	}
 
+	public Boolean getInStock() {
+		return inStock;
+	}
+
+	public void setInStock(Boolean inStock) {
+		this.inStock = inStock;
+	}
+
+	@Override
+	public String toString() {
+		return  " BarCode: 		" + barCode + "\n" +
+					"Category:			" + category + "\n" +
+					"Description:		" + description + "\n" +
+					"Unit Price: 		" + this.getFormattedPrice(unitPrice) + "\n" +
+					"In Stock Flag:    " + inStock + "\n";
+	}
 }

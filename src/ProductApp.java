@@ -29,7 +29,7 @@ public class ProductApp
             System.out.println("Description: " +
                 product.getDescription());
             System.out.println("Price:       " +
-                product.getFormattedPrice());
+                product.getFormattedPrice(product.getUnitPrice()));
             System.out.println();
 
             // see if the user wants to continue
@@ -37,5 +37,6 @@ public class ProductApp
             choice = sc.nextLine();
             System.out.println();
         }
+        sc.close();
     }
 }

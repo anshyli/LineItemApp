@@ -32,8 +32,7 @@ public class Validator
         }
         return i;
     }
-    public static double getDouble(
-    Scanner sc, String prompt) {
+    public static double getDouble(Scanner sc, String prompt) {
         double d = 0;
         boolean isValid = false;
         while (isValid == false) {
@@ -53,8 +52,7 @@ public class Validator
         }
         return d;
     }
-    public static double getDouble(
-    Scanner sc, String prompt, double min, double max) {
+    public static double getDouble(Scanner sc, String prompt, double min, double max) {
         double d = 0;
         boolean isValid = false;
         while (isValid == false) {
@@ -73,9 +71,23 @@ public class Validator
         return d;
     }
 
-	public static int getInt(Scanner sc, String string, int i, int j) {
-		
-		return 0;
-	}
+	public static int getInt(Scanner sc, String prompt, int min, int max) {
+        int d = 0;
+        boolean isValid = false;
+        while (isValid == false) {
+            d = getInt(sc, prompt);
+            if (d <= min)
+                System.out.println(
+                    "Error! Number must be greater than " + 
+                    min + ".");
+            else if (d >= max)
+                System.out.println(
+                    "Error! Number must be less than " +
+                    max + ".");
+            else
+                isValid = true;
+        }
+        return d;
+    }
 }
 
