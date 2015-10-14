@@ -6,11 +6,11 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class InvoiceApp {
+public class InvoiceAppold {
 	static int invoiceId = 1;
 	final static double taxRate = 0.05;
 	
-	public InvoiceApp() {
+	public InvoiceAppold() {
 		invoiceId++;
 	}
 	/*
@@ -24,7 +24,7 @@ public class InvoiceApp {
 		//InvoiceApp theInvoice = new InvoiceApp();
 		DateFormat df = new SimpleDateFormat("EEE, MMM d, ' 'yy");
 		Date invoiceDate = new Date();
-		System.out.println("Invoice " + InvoiceApp.invoiceId + "  on " + df.format(invoiceDate));
+		System.out.println("Invoice " + InvoiceAppold.invoiceId + "  on " + df.format(invoiceDate));
 		System.out.println();
 		System.out.println("Product \t Quantity \t Line Total \t Line Tax");
         NumberFormat currency = NumberFormat.getCurrencyInstance();  
@@ -33,7 +33,7 @@ public class InvoiceApp {
 		String pBarCode = kb.next(); 
         while (!pBarCode.equals("done")){
         	Product theProduct = ProductDB.getProduct(pBarCode);
-            LineItem thisLineItem = new LineItem(theProduct, InvoiceApp.invoiceId);
+            LineItem thisLineItem = new LineItem(theProduct, InvoiceAppold.invoiceId);
             //LineItem created
     		System.out.println("Enter product unit price");
     		double pUnitPrice = kb.nextDouble();      
@@ -68,6 +68,7 @@ public class InvoiceApp {
        	System.out.println(" Untaxable subtotal: " + currency.format(untaxableTotal));
        	System.out.println(" Tax: " + currency.format(totalTax));
        	System.out.println(" Grand Total: " + currency.format(grandTotal));
+
        	kb.close();
 	}
 

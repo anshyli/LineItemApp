@@ -9,6 +9,13 @@ public class LineItem
     private int 	invoiceId; 
     private Boolean taxable = true;
     
+    public LineItem(Product aProduct, int theQuantity, Boolean taxFlag) {
+        this.theProduct = ProductDB.getProduct(aProduct.getBarCode());
+        this.quantity = theQuantity;
+        this.lineItemTotal = theQuantity * aProduct.getUnitPrice();
+        this.invoiceId = 0; 
+        this.setTaxable(taxFlag);
+    }
     public LineItem(Product aProduct, int theQuantity, double lineTotal, int invoiceId, Boolean taxFlag) {
         this.theProduct = ProductDB.getProduct(aProduct.getBarCode());
         this.quantity = 0;
