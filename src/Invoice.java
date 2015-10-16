@@ -29,7 +29,4 @@ public class Invoice {
 			NumberFormat currency = NumberFormat.getCurrencyInstance();
 			return currency.format(this.getInvoiceTotal());
 		}
-
-
-
 }
